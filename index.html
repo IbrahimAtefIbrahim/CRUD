@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body class="bg-dark">
+    <div class="container w-50">
+        <h1 class=" text-center CRUD">CRUD</h1>
+        <h3 class="text-primary text-center">Products Management System</h3>
+        <div class="products-form my-4">
+            <div class="mb-3">
+                <label for="name" class="form-label text-light">Product name</label>
+                <input type="text" class="form-control" oninput="validName()" id="name">
+                <span id="valid_name" class="validMessage"></span>
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label text-light">Product price</label>
+                <input type="number" class="form-control" oninput="validPrice()" id="price">
+                <span id="valid_price" class="validMessage"></span>
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label text-light">Product category</label>
+                <input type="text" class="form-control" oninput="validChar()" id="category">
+                <span id="valid_char" class="validMessage"></span>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label text-light">Product description</label>
+                <textarea class="form-control" oninput="validTextArea()" id="description" rows="3"></textarea>
+                <span id="valid_Textaria" class="validMessage"></span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button id="submit" class="btn"></button>
+                <button id="delete_All" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete all</button>
+              </div>
+              <div class="my-3">
+                <input type="text" di class="form-control"  id="search" placeholder="search by name">
+              </div>
+        </div>
+        <div id="show">
+            <table id="table" class="table table-dark table-striped">
+                <thead id="thead">
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="tableContent">
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+     <!-- *****show message product was created seccessfully**** -->
+    <div id="show_message_success" class="show_message_success pt-3 ps-3 pe-3 rounded-end">
+         <p class="fs-4 yes"> <i class="fa-solid fa-circle-check"></i></i></p>
+          <p class="fs-4 fw-bolder">product was <span id="success">created</span> seccessfully</p>
+        
+    </div>
+
+
+    <!-- *****delete all product***** -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4>Are you shure you wont to delete all products???</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="deleteAll()">Delete All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
